@@ -38,7 +38,7 @@ void enableCollisionDetection(int value) {
 }
 
 void drawSideWalls() {
-    // Desenhar paredes laterais
+    // Desenhar paredes 
     
     // Paredes � esquerda
     glPushMatrix();
@@ -110,14 +110,14 @@ void render(){
 
     // Desenhar raquetes
     glPushMatrix();
-    glColor3f(0.6, 0.0, 0.0);
+    glColor3f(0.8, 0.0, 0.0);
     glTranslatef(-1.7, racket1Y, 0.0);
     glScalef(0.06, 0.7, 0.2);
     glutSolidCube(1.0);
     glPopMatrix();
 
     glPushMatrix();
-    glColor3f(0.0, 0.0, 0.6);
+    glColor3f(0.0, 0.0, 0.8);
     glTranslatef(1.7, racket2Y, 0.0);
     glScalef(0.06, 0.7, 0.2);
     glutSolidCube(1.0);
@@ -175,16 +175,16 @@ void update(int value) {
             if (ballSpeedX>maxspeedx){
 				ballSpeedX = maxspeedx;
 			}
-            ballX = -1.73 + ballSize; // Adjust the ball's position
+            ballX = -1.73 + ballSize; // Ajuste da posi��o da bola
             canDetectCollision = false;
-            glutTimerFunc(500, enableCollisionDetection, 0); // Enable collision detection after 500 milliseconds
+            glutTimerFunc(500, enableCollisionDetection, 0); // Habilitar detec��o de colis�o depois de 500 milisegundos
         }
 
         if (ballX + ballSize > 1.73 && ballY > racket2Y - 0.35 && ballY < racket2Y + 0.35) {
             ballSpeedX = -ballSpeedX*1.1;
-            ballX = 1.73 - ballSize; // Adjust the ball's position
+            ballX = 1.73 - ballSize; // Ajuste da posi��o da bola
             canDetectCollision = false;
-            glutTimerFunc(500, enableCollisionDetection, 0); // Enable collision detection after 500 milliseconds
+            glutTimerFunc(500, enableCollisionDetection, 0); // Habilitar detec��o de colis�o depois de 500 milisegundos
         }
     }
 
